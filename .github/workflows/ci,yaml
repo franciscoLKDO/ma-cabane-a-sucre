@@ -1,0 +1,20 @@
+on:
+  push:
+    inputs:
+        config-path:
+            required: true
+            type: string
+        personal_access_token:
+            required: true
+    
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./scripts
+    steps:
+      - name: Check out the repository to the runner
+        uses: actions/checkout@v6
+      - name: Run a script
+        run: github.com/franciscoLKDO/ci-automate
